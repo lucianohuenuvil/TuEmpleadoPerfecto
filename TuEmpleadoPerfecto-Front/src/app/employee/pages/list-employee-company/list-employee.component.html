@@ -1,0 +1,13 @@
+<div class="container">
+    <h3 class="text-center">Lista de empleados registradas</h3>
+
+    <ul class="list-group">
+
+        <li class="list-group-item" *ngFor="let employee of employees">
+          Nombre: {{employee.nombre}} | Rut: {{employee.rut}} | Email: {{ employee.email }} 
+        </li>
+      </ul>
+
+
+</div>
+

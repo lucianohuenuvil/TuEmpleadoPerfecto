@@ -7,7 +7,6 @@ const routes: Routes = [
   {
     path: '',
     component:HomePageComponent
-    // loadChildren: () => import('./company/company.module').then( m => m.CompanyModule)
   },
 
   {
@@ -17,9 +16,9 @@ const routes: Routes = [
 
   {
     path: 'employee',
-    // component:EmployeePageComponent
     loadChildren: () => import('./employee/employee.module').then( m => m.EmployeeModule)
-  },
+  }
+  ,
   {
     path: '**',
     redirectTo: ''

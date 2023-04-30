@@ -3,18 +3,24 @@
     <h2>Agregar nuevo empleado en: " empresa "</h2>
 </div>
 
-<form class="container border p-3">
+<form class="container border p-3" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
     <div class="form-group pb-3">
         <label>Nombre completo:</label>
-        <input type="number" class="form-control" placeholder="Ingresar Rut empresa">
+        <input type="text" class="form-control" required formControlName="nombre" placeholder="Ingresar Nombre Completo" >
     </div>
     <div class="form-group pb-3">
         <label>Rut:</label>
-        <input type="text" class="form-control" placeholder="Ingresar Nombre Empresa">
+        <input type="text" class="form-control" formControlName="rut" placeholder="Ingresar Rut">
     </div>
     <div class="form-group pb-3">
         <label for="exampleInputEmail1">Email</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      </div>
+        <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" placeholder="Ingresar email">
+    </div>
+    <div class="form-group pb-3">
+        <label for="exampleInputEmail1">Empresa ID</label>
+        <input type="email" class="form-control" value={{id_company}}  placeholder="Enter email" readonly>
+    </div>
+
+    
     <button  type="submit" class="btn btn-primary">Submit</button>
     </form>

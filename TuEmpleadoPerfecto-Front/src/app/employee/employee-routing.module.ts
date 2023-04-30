@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { EmployeePageComponent } from '../shared/pages/employee-page/employee-page.component';
 import { AddEmployeeComponent } from './pages/add-employee/add-employee.component';
-import { ListEmployeeComponent } from './pages/list-employee/list-employee.component';
+import { ListEmployeeComponent } from './pages/list-employee-company/list-employee.component';
+import { AccessListEmployeeComponent } from './pages/access-list-company/access-list-company.component';
 
 
 
@@ -12,20 +13,17 @@ import { ListEmployeeComponent } from './pages/list-employee/list-employee.compo
 const routes: Routes = [
 
   {
-
     path:'',
-    component:EmployeePageComponent
-    
+    component:AccessListEmployeeComponent
   },
 
   {
-    path: 'addEmployee',
+    path: 'addEmployee/:id',
     component:AddEmployeeComponent
   },
 
-
   {
-    path: 'listEmployee',
+    path: 'company/:id',
     component:ListEmployeeComponent
   }
 
