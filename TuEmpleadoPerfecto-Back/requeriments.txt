@@ -2,4 +2,3 @@ django
 virtualenv
 django-cors-headers
 djangorestframework
-mysqlclient
