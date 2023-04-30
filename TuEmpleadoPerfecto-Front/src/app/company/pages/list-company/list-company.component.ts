@@ -8,20 +8,20 @@ import { CompanyService } from '../../services/company.service';
 })
 export class ListCompanyComponent implements OnInit {
 
+  constructor( private companyService: CompanyService) {}
 
   public company: Company[] = [];
 
 
 
-  constructor( private companyService: CompanyService) {
-
-  }
-
-
   ngOnInit ():void {
 
-    this.companyService.getCompanies()
-    .subscribe( company => this.company = company)
+    try{
+      this.companyService.getCompanies().subscribe( company => this.company = company);
+    } catch{
+      alert("Ha ocurrido un error")
+    }
+
 
 
   }

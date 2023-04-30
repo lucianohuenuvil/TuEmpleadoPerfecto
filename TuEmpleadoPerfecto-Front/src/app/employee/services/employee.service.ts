@@ -41,7 +41,7 @@ export class EmployeeService {
     return this.http.post<Employee>('http://127.0.0.1:8000/app/api/v1/empleados/', employee)
     .pipe(
       catchError((error: any): Observable<Employee> => {
-        alert(JSON.stringify(error.error))
+        alert(JSON.stringify(error.error));
         return throwError(error);
       })
     );

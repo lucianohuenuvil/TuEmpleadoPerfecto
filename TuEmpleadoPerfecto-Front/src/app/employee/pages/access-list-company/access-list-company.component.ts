@@ -9,21 +9,20 @@ import { EmployeeService } from '../../services/employee.service';
 export class AccessListEmployeeComponent implements OnInit {
 
 
+  constructor( private employeeService: EmployeeService) {}
+
+
   public companyName: CompanyName[] = [];
-
-
-
-  constructor( private employeeService: EmployeeService) {
-
-  }
 
 
 
   ngOnInit ():void {
 
-    this.employeeService.getCompaniesName()
-    .subscribe( data => this.companyName = data)
-
+    try{
+      this.employeeService.getCompaniesName().subscribe( data => this.companyName = data);
+    }catch{
+      alert("Ha ocurrido un error");
+    }
 
   }
 

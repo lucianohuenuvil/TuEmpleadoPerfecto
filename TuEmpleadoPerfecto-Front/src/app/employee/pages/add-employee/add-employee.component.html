@@ -1,20 +1,61 @@
 <div class="container text-center">
 
-    <h2>Agregar nuevo empleado en: " empresa "</h2>
+    <h2>Agregar nuevo empleado en: " {{name_company}} "</h2>
 </div>
 
 <form class="container border p-3" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
     <div class="form-group pb-3">
         <label>Nombre completo:</label>
         <input type="text" class="form-control" required formControlName="nombre" placeholder="Ingresar Nombre Completo" >
+
+        <div *ngIf="employeeForm.controls['nombre'].getError('required')">
+            <span class="text-warning" *ngIf="employeeForm.controls['nombre']">El nombre es obligatorio.</span>
+        </div>
+
+        <div *ngIf="employeeForm.controls['nombre'].getError('minlength')">
+            <span class="text-warning" *ngIf="employeeForm.controls['nombre']">El campo debe contener al menos 10 caracteres</span>
+        </div>
+
+        <div *ngIf="employeeForm.controls['nombre'].getError('maxlength')">
+            <span class="text-warning" *ngIf="employeeForm.controls['nombre']">El campo no puede contener mas de 80 caracteres</span>
+        </div>
+
     </div>
+
+
     <div class="form-group pb-3">
         <label>Rut:</label>
         <input type="text" class="form-control" formControlName="rut" placeholder="Ingresar Rut">
+
+        <div *ngIf="employeeForm.controls['rut'].getError('required')">
+            <span class="text-warning">El campo es obligatorio.</span>
+        </div>
+
+        <div *ngIf="employeeForm.controls['rut'].getError('pattern')">
+            <span class="text-warning" >El campo solo debe contener números</span>
+        </div>
+
+        <div *ngIf="employeeForm.controls['rut'].getError('maxlength')">
+            <span class="text-warning">El campo debe contener hasta 9 digitos</span>
+        </div>
+
+        <div *ngIf="employeeForm.controls['rut'].getError('minlength')">
+            <span class="text-warning">El campo debe contener mínimo 8 digitos</span>
+        </div>
+
     </div>
     <div class="form-group pb-3">
         <label for="exampleInputEmail1">Email</label>
         <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" placeholder="Ingresar email">
+
+        <div *ngIf="employeeForm.controls['email'].getError('required')">
+            <span class="text-warning" *ngIf="employeeForm.controls['email']">El nombre es obligatorio.</span>
+        </div>
+
+
+        <div *ngIf="employeeForm.controls['email'].getError('email')">
+            <span class="text-warning" *ngIf="employeeForm.controls['email']">El correo debe ser con la sintaxis "aaa@ttt.com".</span>
+        </div>
     </div>
     <div class="form-group pb-3">
         <label for="exampleInputEmail1">Empresa ID</label>

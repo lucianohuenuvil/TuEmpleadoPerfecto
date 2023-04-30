@@ -23,20 +23,15 @@ export class ListEmployeeComponent implements OnInit {
     this.activatedRoute.params
       .pipe(
         switchMap(({id}) => this.employeeService.getEmployeeByCompaniesId(id))
-        
       ).subscribe( employee => {
         
-        if (employee.length === 0) 
-          return this.router.navigate(['/'])
-
+        if (employee.length === 0) {
+          alert("No hay empleados en la empresa seleccionada");
+          return this.router.navigate(['/employee']);
+        }
         this.employees = employee;
-
-        return
-        
+        return;
       })
-
-
-
   }
 
 }

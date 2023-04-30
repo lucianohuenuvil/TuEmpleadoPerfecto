@@ -6,19 +6,79 @@
 <form class="container border p-3" [formGroup]="companyForm" (ngSubmit)="onSubmit()">
     <div class="form-group pb-3">
         <label>Rut Empresa:</label>
-        <input type="number" class="form-control" placeholder="Ingresar Rut empresa" required formControlName="rut">
+        <input type="text" class="form-control" placeholder="Ingresar Rut empresa" required formControlName="rut">
+
+
+        <div *ngIf="companyForm.controls['rut'].getError('required')">
+            <span class="text-warning">El campo es obligatorio.</span>
+        </div>
+
+        <div *ngIf="companyForm.controls['rut'].getError('pattern')">
+            <span class="text-warning" >El campo solo debe contener números</span>
+        </div>
+
+        <div *ngIf="companyForm.controls['rut'].getError('maxlength')">
+            <span class="text-warning">El campo debe contener hasta 9 digitos</span>
+        </div>
+
+        <div *ngIf="companyForm.controls['rut'].getError('minlength')">
+            <span class="text-warning">El campo debe contener mínimo 8 digitos</span>
+        </div>
+
+
     </div>
     <div class="form-group pb-3">
         <label>Nombre Empresa:</label>
         <input type="text" class="form-control" placeholder="Ingresar Nombre Empresa" required formControlName="nombre">
+
+
+        <div *ngIf="companyForm.controls['nombre'].getError('required')">
+            <span class="text-warning">El nombre es obligatorio.</span>
+        </div>
+
+        <div *ngIf="companyForm.controls['nombre'].getError('minlength')">
+            <span class="text-warning">El campo debe contener al menos 3 caracteres</span>
+        </div>
+
+        <div *ngIf="companyForm.controls['nombre'].getError('maxlength')">
+            <span class="text-warning">El campo no puede contener mas de 50 caracteres</span>
+        </div>
     </div>
+
+
     <div class="form-group pb-3">
         <label>Dirección:</label>
         <input type="text" class="form-control" placeholder="Ingresar Dirección Empresa" required formControlName="direccion">
+
+        <div *ngIf="companyForm.controls['direccion'].getError('required')">
+            <span class="text-warning">La dirección es obligatoria.</span>
+        </div>
+
+        <div *ngIf="companyForm.controls['direccion'].getError('minlength')">
+            <span class="text-warning">El campo debe contener al menos 10 caracteres</span>
+        </div>
+
+        <div *ngIf="companyForm.controls['direccion'].getError('maxlength')">
+            <span class="text-warning">El campo no puede contener mas de 50 caracteres</span>
+        </div>
     </div>
+
+
     <div class="form-group pb-3">
         <label>Teléfono:</label>
-        <input type="number" class="form-control" placeholder="Ingresar el teléfono Empresa" required  formControlName="telefono">
+        <input type="text" class="form-control" placeholder="Ingresar el teléfono Empresa" required  formControlName="telefono">
+
+        <div *ngIf="companyForm.controls['telefono'].getError('required')">
+            <span class="text-warning">El teléfono es obligatorio.</span>
+        </div>
+
+        <div *ngIf="companyForm.controls['telefono'].getError('minlength')">
+            <span class="text-warning">El campo debe contener al menos 3 caracteres</span>
+        </div>
+
+        <div *ngIf="companyForm.controls['telefono'].getError('maxlength')">
+            <span class="text-warning">El campo no puede contener mas de 11 caracteres</span>
+        </div>
     </div>
     <button  type="submit" class="btn btn-primary">Submit</button>
 </form>
