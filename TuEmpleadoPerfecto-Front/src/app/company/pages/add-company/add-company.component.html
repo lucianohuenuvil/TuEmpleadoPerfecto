@@ -79,6 +79,10 @@
         <div *ngIf="companyForm.controls['telefono'].getError('maxlength')">
             <span class="text-warning">El campo no puede contener mas de 11 caracteres</span>
         </div>
+
+        <div *ngIf="companyForm.controls['telefono'].getError('pattern')">
+            <span class="text-warning" >El campo solo debe contener números</span>
+        </div>
     </div>
     <button  type="submit" class="btn btn-primary">Submit</button>
 </form>

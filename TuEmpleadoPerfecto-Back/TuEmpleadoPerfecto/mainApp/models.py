@@ -8,7 +8,7 @@ class Empresa(models.Model):
     rut = models.IntegerField(primary_key=True)
     nombre = models.CharField(max_length=50)
     direccion = models.CharField(max_length=50)
-    telefono = models.CharField(max_length=11)
+    telefono = models.IntegerField(max_length=11)
      
     def __str__(self):
         return self.nombre
@@ -16,7 +16,7 @@ class Empresa(models.Model):
 
 class Empleado(models.Model):
     nombre = models.CharField(max_length=80)
-    rut = models.CharField(max_length=9)
+    rut = models.IntegerField(primary_key=True)
     email = models.EmailField()
     id_empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
 

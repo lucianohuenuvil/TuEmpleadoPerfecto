@@ -18,7 +18,7 @@ export class AddCompanyComponent {
     rut:new FormControl('',[Validators.required, Validators.maxLength(9), Validators.minLength(8), Validators.pattern(/^[0-9]*$/)]) ,
     nombre:new FormControl('',[Validators.required, Validators.maxLength(50), Validators.minLength(3)]) ,
     direccion:new FormControl('',[Validators.required, Validators.maxLength(50), Validators.minLength(10)]) ,
-    telefono:new FormControl('',[Validators.required, Validators.maxLength(11), Validators.minLength(3)])
+    telefono:new FormControl('',[Validators.required, Validators.maxLength(11), Validators.minLength(3), Validators.pattern(/^[0-9]*$/)])
   });
 
 
@@ -34,17 +34,24 @@ export class AddCompanyComponent {
 
     if (this.companyForm.valid){
       try{
-        this.companyService.addCompany( this.currentCompany ).subscribe()
-        alert("La empresa ha ido guardada correctamente");
-        this.router.navigate(['/employee']);
+        this.companyService.addCompany( this.currentCompany ).subscribe(
+          response => {
+            console.log(response);
+          },
+          error => {
+            console.error("Error", error);
+          },
+          () => {
+            alert('La empresa ha sido creada correctamente');
+            this.router.navigate(['/employee']);
+          }
+        )
 
       } catch{
         alert("Ha ocurrido un error");
       }
     }
     else alert("Hay un error en el formulario, intente nuevamente");
-
-
 
   }
 

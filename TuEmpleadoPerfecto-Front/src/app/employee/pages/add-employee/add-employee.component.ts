@@ -59,9 +59,18 @@ export class AddEmployeeComponent  implements OnInit {
   onSubmit():void {
     if (this.employeeForm.valid){
       try{
-        this.empliyeeService.addEmployeByCompanyId( this.currentEmployee ).subscribe();
-        alert("El Empleado ha ido guardado correctamente");
-        this.router.navigate(['/employee']);
+        this.empliyeeService.addEmployeByCompanyId( this.currentEmployee ).subscribe(
+          response => {
+            console.log(response);
+          },
+          error => {
+            console.error("Error", error);
+          },
+          () => {
+            alert("El empleado ha sido guardado correctamente");
+            this.router.navigate(['/employee']);
+          }
+        );
 
       } catch{
         alert("Ha ocurrido un error");
