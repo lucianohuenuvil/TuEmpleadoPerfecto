@@ -4,26 +4,31 @@ Para este ejemplo se utilizó un modelo de base de datos relacional, empleado y 
 
 Requisitos previos:
 
-Node.js y npm instalados en la máquina local.
-Python 3 y Django instalados en la máquina local.
+-Instalar git (Página oficial)
+-Instalar Node.js y npm  (v16.15 o superior - pagina oficial de Node js) y Angular (12 o superior). (Para instalar Angular -> "npm install -g @angular/cli")
+-Python 3 (Se utilizó python 3.9.7).
+-Instalar virtualenv -> pip install virtualenv
+
+*Si es primera vez que se instalaron, reiniciar equipo
+
 
 Instalación
 
-Frontend
+*Frontend:
 
-Clonar este repositorio en la máquina local: git clone https://github.com/<nombre-de-usuario>/prueba-tecnica-tu-empleado-perfecto.git.
+Clonar este repositorio en la máquina local, o descargar el archivo Zip del proyecto. -> git clone https://github.com/lucianohuenuvil/TuEmpleadoPerfecto.git
 -Navegar a la carpeta frontend del proyecto: cd TuEmpleadoPerfecto-Front
 -Instalar las dependencias: npm install.
 
 
-Backend
--Abrir nueva terminal donde y abrir la ruta backend
+*Backend:
+
+-Abrir nueva terminal y abrir la ruta Back-End
 -Navegar a la carpeta backend del proyecto: cd TuEmpleadoPerfecto-Back
--Crear un entorno virtual para el proyecto: python -m venv venv
+-Crear un entorno virtual para el proyecto: virtualvenv venv
 -Activar el entorno virtual: cd venv/script/activate
--Volver a la carpeta TuEmpleadoPerfecto-Back e instalar dependencias
--Entrar a la carpeta del proyecto "TuEmpleadoPerfecto" -> cd TuEmpleadoPerfecto
--Instalar las dependencias: pip install -r requirements.txt.
+-Volver a la carpeta TuEmpleadoPerfecto-Back para instalar dependencias -> pip install -r requirements.txt
+-Luego, entrar a la carpeta del proyecto "TuEmpleadoPerfecto" -> cd TuEmpleadoPerfecto
 -Realizar las migraciones de la base de datos: python manage.py migrate.
 
 
